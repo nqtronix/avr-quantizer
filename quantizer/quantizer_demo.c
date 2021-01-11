@@ -99,22 +99,29 @@ int main(void)
 	// test behavior id max input value is <32k => row count <9
 	// to be valid, this test requires a lut where: lut[lut[0]] < lut[lut[0]+1]
 	// output range is limited to the amount of elements, where ID23 is the max value
-	volatile uint8_t id0L = quantizer_1d2(lut1d2_E12_1K47K, 0);
-	volatile uint8_t id0H = quantizer_1d2(lut1d2_E12_1K47K, 28);
-	volatile uint8_t id1L = quantizer_1d2(lut1d2_E12_1K47K, 29);
-	volatile uint8_t id1H = quantizer_1d2(lut1d2_E12_1K47K, 34);
-	volatile uint8_t id2L = quantizer_1d2(lut1d2_E12_1K47K, 35);
+// 	volatile uint8_t id0L = quantizer_1d2(lut1d2_E12_1K47K, 0);
+// 	volatile uint8_t id0H = quantizer_1d2(lut1d2_E12_1K47K, 28);
+// 	volatile uint8_t id1L = quantizer_1d2(lut1d2_E12_1K47K, 29);
+// 	volatile uint8_t id1H = quantizer_1d2(lut1d2_E12_1K47K, 34);
+// 	volatile uint8_t id2L = quantizer_1d2(lut1d2_E12_1K47K, 35);
+// 	
+// 	volatile uint8_t id14H = quantizer_1d2(lut1d2_E12_1K47K, 211<<1);
+// 	volatile uint8_t id15L = quantizer_1d2(lut1d2_E12_1K47K, 212<<1);
+// 	volatile uint8_t id15H = quantizer_1d2(lut1d2_E12_1K47K, 129<<2);
+// 	volatile uint8_t id16L = quantizer_1d2(lut1d2_E12_1K47K, 130<<2);
+// 	
+// 	volatile uint8_t id21H = quantizer_1d2(lut1d2_E12_1K47K, 201<<3);
+// 	volatile uint8_t id22L = quantizer_1d2(lut1d2_E12_1K47K, 202<<3);
+// 	volatile uint8_t id22H = quantizer_1d2(lut1d2_E12_1K47K, 254<<4);
+// 	volatile uint8_t id23L = quantizer_1d2(lut1d2_E12_1K47K, 255<<4);
+// 	volatile uint8_t id23H = quantizer_1d2(lut1d2_E12_1K47K, UINT16_MAX);
 	
-	volatile uint8_t id14H = quantizer_1d2(lut1d2_E12_1K47K, 211<<1);
-	volatile uint8_t id15L = quantizer_1d2(lut1d2_E12_1K47K, 212<<1);
-	volatile uint8_t id15H = quantizer_1d2(lut1d2_E12_1K47K, 129<<2);
-	volatile uint8_t id16L = quantizer_1d2(lut1d2_E12_1K47K, 130<<2);
-	
-	volatile uint8_t id21H = quantizer_1d2(lut1d2_E12_1K47K, 201<<3);
-	volatile uint8_t id22L = quantizer_1d2(lut1d2_E12_1K47K, 202<<3);
-	volatile uint8_t id22H = quantizer_1d2(lut1d2_E12_1K47K, 254<<4);
-	volatile uint8_t id23L = quantizer_1d2(lut1d2_E12_1K47K, 255<<4);
-	volatile uint8_t id23H = quantizer_1d2(lut1d2_E12_1K47K, UINT16_MAX);
+	// test average execution time 
+	for (uint16_t i=0; i < UINT16_MAX; i++)
+	{
+		volatile uint8_t dummy = quantizer_1d2(lut1d2_E12_1K1M, i);
+	}
+	volatile uint8_t dummy = quantizer_1d2(lut1d2_E12_1K1M, 0);
 	
     while (1);
 }
