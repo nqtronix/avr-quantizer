@@ -23,19 +23,20 @@
 // const __flash uint8_t lut1d2_E12_1K1M[48] =
 // {
 // 	// header
-// 	10, 22, 25, 29, 33, 36, 40, 44, 47, 48,
+// 	10, 22, 25, 29, 33, 36, 40, 44, 47, 48, 
 // 
 // 	// data
-// 	28, 34, 42, 52, 63, 77, 94, 113, 134, 161, 194, 234,
-// 	142, 172, 211,
-// 	129, 156, 191, 234,
-// 	141, 168, 201, 242,
-// 	146, 178, 215,
-// 	132, 161, 195, 239,
-// 	146, 176, 210, 251,
-// 	151, 183, 222,
-// 	134,
-// };// Explanation:// The first bytes are the header. It contains indices to the data section, each element in the// header corresponds to a row. The algorithm shifts the eg. 2 byte input data until the resulting// value is 255 or less so that it can be compared to the values in the LUT. For each shift, the// row counter is advanced by one.
+// 	28, 34, 42, 52, 63, 77, 94, 113, 134, 161, 194, 234, 
+// 	142, 172, 211, 
+// 	129, 156, 191, 234, 
+// 	141, 168, 201, 242, 
+// 	146, 178, 215, 
+// 	132, 161, 195, 239, 
+// 	146, 176, 210, 251, 
+// 	151, 183, 222, 
+// 	134, 
+// 	255
+// // Explanation:// The first bytes are the header. It contains indices to the data section, each element in the// header corresponds to a row. The algorithm shifts the eg. 2 byte input data until the resulting// value is 255 or less so that it can be compared to the values in the LUT. For each shift, the// row counter is advanced by one.
 
 //////////////////////////////////////////////////////////////////////////
 // Function Declarations
