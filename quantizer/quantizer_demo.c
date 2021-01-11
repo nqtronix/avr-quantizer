@@ -14,7 +14,7 @@
 //////////////////////////////////////////////////////////////////////////
 
 // These tables were generated with the included excel files
-const __flash uint8_t lut1d2_E12_1K1M[48] =
+const __flash uint8_t lut1d2_E12_1K1M[49] =
 {
 	// header
 	10, 22, 25, 29, 33, 36, 40, 44, 47, 48, 
@@ -32,7 +32,7 @@ const __flash uint8_t lut1d2_E12_1K1M[48] =
 	255
 };
 
-const __flash uint8_t lut1d4_E12_10R10M[92] =
+const __flash uint8_t lut1d4_E12_10R10M[93] =
 {
 	// header
 	18, 36, 39, 43, 47, 50, 54, 57, 61, 65, 68, 72, 76, 79, 83, 86, 90, 92, 
@@ -58,7 +58,7 @@ const __flash uint8_t lut1d4_E12_10R10M[92] =
 	255
 };
 
-const __flash uint8_t lut1d2_E12_1K47K[27] =
+const __flash uint8_t lut1d2_E12_1K47K[28] =
 {
 	// header
 	5, 17, 20, 24, 27, 

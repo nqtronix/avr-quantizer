@@ -20,7 +20,7 @@
 // Generate custom LUTs as needed for your application and copy the LUT into your code. You do not
 // need to modify quantizer.h/.c
 
-// const __flash uint8_t lut1d2_E12_1K1M[48] =
+// const __flash uint8_t lut1d2_E12_1K1M[49] =
 // {
 // 	// header
 // 	10, 22, 25, 29, 33, 36, 40, 44, 47, 48, 
