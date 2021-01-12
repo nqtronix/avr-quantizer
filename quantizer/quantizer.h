@@ -20,7 +20,7 @@
 // Generate custom LUTs as needed for your application and copy the LUT into your code. You do not
 // need to modify quantizer.h/.c
 
-// const __flash uint8_t lut1d2_E12_1K1M[49] =
+// const __flash uint8_t lut16_E12_1K1M[49] =
 // {
 // 	// header
 // 	10, 22, 25, 29, 33, 36, 40, 44, 47, 48, 
@@ -43,14 +43,14 @@
 //////////////////////////////////////////////////////////////////////////
 
 // quantities an input value based on the provided look-up table
-// Multiple variants are provided, eg. 1d2 takes a 1*n byte LUT and a 2 byte data input. 
+// Multiple variants are provided depending on size of input value. LUTs are downward compatible,
+// ie. a lut16 may be used for the *_uint8 variant. Using a smaller variant can increase performance.
 // param:
 //	lut:	look-up table
 //	value:	the input value to be quantized
-uint8_t quantizer_1d1(const __flash uint8_t* lut, uint8_t value);
-uint8_t quantizer_1d2(const __flash uint8_t* lut, uint16_t value);
-uint8_t quantizer_1d4(const __flash uint8_t* lut, uint32_t value);
-
+uint8_t quantizer_uint8(const __flash uint8_t* lut8, uint8_t value);
+uint8_t quantizer_uint16(const __flash uint8_t* lut16, uint16_t value);
+uint8_t quantizer_uint32(const __flash uint8_t* lut32, uint32_t value);
 
 
 #endif /* QUANTIZER_H_ */
