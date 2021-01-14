@@ -1,6 +1,6 @@
 <h1 align="center" style="font-weight: bold; margin-top: 20px; margin-bottom: 20px;">avr-quantizer</h1>
 
-<h4 align="center">An arbitrary value binning quantizer designed for AVR MCUs.</h4>
+<h4 align="center">A quantizer with support for arbitrary bins designed for AVR MCUs.</h4>
 
 <p align="center">
 	<a href="#changelog"><img src="https://img.shields.io/github/release-pre/nqtronix/avr-quantizer.svg" alt="release: NA"></a>
