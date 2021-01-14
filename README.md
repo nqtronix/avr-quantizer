@@ -11,6 +11,15 @@
 	<a href="#license"><img src="https://img.shields.io/github/license/nqtronix/avr-quantizer.svg" alt="license: NA"></a>
 </p>
 
+<p align="center">
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#under-the-hood">Under the Hood</a> •
+  <a href="#support">Need Help?</a> •
+  <a href="#about">About</a> •
+  <a href="#credits-and-references">Credits</a>
+</p>
+
+
 
 ## Introduction
 Generating arbitrary values from a small range of input values is easy with look up tables (LUTs). The reverse operation, condensing a large set of values into a small range, is typically either computation intensive (linear search through all values) or memory intensive (requires a LUT with 1000s of entries).
@@ -50,7 +59,7 @@ This section is written especially for everyone who is **not familiar** with the
 
 ### Step 3: Run the demo
  - **Select your MCU & Programming tool:**<br>
-   Press `F5`to run the demo code in the simulator. Pause the simulation and mouse over the variables to see the results
+   Press `F5` to run the demo code in the simulator. Pause the simulation and mouse over the variables to see the results
    
 ### Step 4: Generate a custom LUT
  - **Edit the included Excel file:**
@@ -60,9 +69,9 @@ This section is written especially for everyone who is **not familiar** with the
 
 ## Under the Hood
 
-Typically LUTs are direct mapped, for each input value a specific output value is stored. A quantisation assigns multiple values one output value, which would require a lot of memory that is filled with redundant information. This implementation instead stores the threshold values at which the output value changes.
+Typically LUTs are direct mapped, for each input value a specific output value is stored. A quantisation assigns one output value to multiple input values, which would require a lot of memory filled with redundant information. This implementation instead stores the threshold values at which the output value changes.
 
-Depending on the size of the input value (2/4 byte) and the range of output values, the resulting LUT can be quite large still. Finding the correct value would require a search across all values and multiple 2/4 byte comparisons, which are rather slow on a AVR8 MCU. Because this level of accuracy is rarely required, this algorithm only compares the 8 most significant bits, ignoring the leading zeros. If the input value is larger than 8bit, it is shifted right until it can be compared. To represent numbers >8bit correctly, a header row is added to the LUT, which contains the LUT offset for each amount of shifts required.
+Depending on the size of the input value (2/4 byte) and the range of output values, the resulting LUT can still be quite large. Finding the correct value would require a search across all values and multiple 2/4 byte comparisons, which are rather slow on a AVR8 MCU. Because this level of accuracy is rarely required, the algorithm only compares the 8 most significant bits, ignoring the leading zeros. If the input value is larger than 8bit, it is shifted right until it can be compared. To represent numbers >8bit correctly, a header row is added to the LUT, which contains the LUT offset for each amount of shifts required.
 
 <br>
 
